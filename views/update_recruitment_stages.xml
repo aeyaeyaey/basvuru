@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Update the 'Initial Qualification' stage -->
+        <record id="stage_job1" model="hr.recruitment.stage">
+            <field name="name">emre</field>
+        </record>
+        <!-- Update the 'First Interview' stage -->
+        <record id="hr_recruitment.stage_job2" model="hr.recruitment.stage">
+            <field name="name">Updated First Interview</field>
+        </record>
+
+        <!-- Update the 'Second Interview' stage -->
+        <record id="hr_recruitment.stage_job3" model="hr.recruitment.stage">
+            <field name="name">Updated Second Interview</field>
+        </record>
+
+        <!-- Update the 'Contract Proposal' stage -->
+        <record id="hr_recruitment.stage_job4" model="hr.recruitment.stage">
+            <field name="name">Updated Contract Proposal</field>
+        </record>
+
+        <!-- Update the 'Contract Signed' stage -->
+        <record id="hr_recruitment.stage_job5" model="hr.recruitment.stage">
+            <field name="name">Updated Contract Signed</field>
+        </record>
+    </data>
+</odoo>

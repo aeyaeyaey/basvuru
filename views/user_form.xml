@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+        <!-- Inherit the base view for users form -->
+        <record id="view_users_form_inherit_custom_fields" model="ir.ui.view">
+            <field name="name">res.users.form.inherit.custom.fields</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <!-- Adding fields below the partner_id field -->
+                <xpath expr="//field[@name='login']" position="after">
+                    <group string="Additional Information">
+                        <field name="birth_date"/>
+                        <field name="birth_place"/>
+                        <field name="school_email"/>
+                        <field name="gender"/>
+                        <field name="tc_kimlik_no"/>
+                        <field name="partner_id"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

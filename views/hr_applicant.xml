@@ -1,0 +1,71 @@
+<odoo>
+    <data>
+
+
+        <!-- Inherit the hr_kanban_view_applicant view to modify the 'Hired' label -->
+        <record id="view_hr_form_view_applicant_inherit" model="ir.ui.view">
+            <field name="name">hr.form.view.applicant.inherit</field>
+            <field name="model">hr.applicant</field>
+            <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+            <field name="arch" type="xml">
+                <!-- Change 'Hired' to 'ONAYLANDI' and adjust font size -->
+                <xpath expr="//field[@name='email_cc']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Extend the form view of hr.applicant -->
+        <record id="view_hr_applicant_form_inherit" model="ir.ui.view">
+            <field name="name">hr.applicant.form.inherit</field>
+            <field name="model">hr.applicant</field>
+            <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form_interviewer"/>
+            <field name="arch" type="xml">
+                <!-- Replace the partner_phone field with partner_gender -->
+                <xpath expr="//field[@name='email_from']" position="after">
+                    <field name="partner_school_email" />
+                </xpath>
+                <xpath expr="//field[@name='email_cc']" position="replace">
+                    <field name="partner_gender" widget="radio"/>
+                    <field name="partner_nationality_id"/>
+                    <field name="partner_tc_kimlik_no"/>
+
+                </xpath>
+                <xpath expr="//field[@name='partner_phone']" position="replace">
+                    <field name="partner_gender" widget="radio" modifiers="{}"/>
+                    <field name="partner_birth_date"/>
+                    <field name="partner_birth_place"/>
+                    <field name="partner_id"/>
+                </xpath>
+            </field>
+        </record>
+
+         <!-- Stage ID domainini güncelle -->
+        <record id="view_hr_applicant_form_inherited_stage_id" model="ir.ui.view">
+            <field name="name">hr.applicant.form.stage.id.update</field>
+            <field name="model">hr.applicant</field>
+            <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form_interviewer"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='stage_id']" position="attributes">
+                    <attribute name="domain">[]</attribute> <!-- Domain tanımını boş bırakıyoruz veya uygun bir domain tanımı ekleyebilirsiniz -->
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Job grubunu ve içeriğini kaldır -->
+        <record id="view_hr_applicant_form_inherited" model="ir.ui.view">
+            <field name="name">hr.applicant.form.inherited</field>
+            <field name="model">hr.applicant</field>
+            <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form_interviewer"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[field[@name='job_id']]" position="replace"/>
+            </field>
+        </record>
+
+
+
+
+
+
+    </data>
+</odoo>

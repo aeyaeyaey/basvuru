@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_ilce,access_res_ilce,model_res_ilce,,1,1,1,1
+access_res_mahalle,access_res_mahalle,model_res_mahalle,,1,1,1,1
